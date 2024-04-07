@@ -97,9 +97,11 @@ def crud_usuario():
         elif entrada == 5:# Deletar usuários
             Usuario.delete(escolher_usuario())
         elif entrada == 6:# Adicionar favorito
+            produto = escolher_produto()
+            del produto["vendedor"]
             Usuario.adicionar_favorito(
                 escolher_usuario(),
-                escolher_produto()
+                produto
             )
         elif entrada == 7:# Remover favorito
             Usuario.remover_favorito(escolher_usuario())
@@ -151,9 +153,11 @@ def crud_vendedor():
         elif entrada == 5:# Deletar vendedor
             Vendedor.delete(escolher_vendedor())
         elif entrada == 6:# adicionar produto
+            produto = escolher_produto()
+            del produto["vendedor"]
             Vendedor.adicionar_produto(
                 escolher_vendedor(),
-                escolher_produto()
+                produto
             )
         elif entrada == 7:# remover produto
             Vendedor.remover_produto(escolher_vendedor())
